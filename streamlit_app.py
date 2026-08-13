@@ -41,6 +41,11 @@ st.write('The name on your Smoothie will be:',name_on_order)
 cnx=st.connection("snowflake")
 session=cnx.session()
 
+# NEW SECTION TO DISPLAY SMOOTHIEFRUIT NUTRITION INFORMATION
+import requests  
+smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+st.text(smoothiefroot_response)
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
                                                                       # ,col('SEARCH_ON'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
