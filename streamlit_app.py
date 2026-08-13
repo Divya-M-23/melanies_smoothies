@@ -43,16 +43,16 @@ session=cnx.session()
 
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
-st.dataframe(data=my_dataframe, use_container_width=True)
-st.stop()
+# st.dataframe(data=my_dataframe, use_container_width=True)
+# st.stop()
 
 
 # smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
 # CONVERT THE SNOWPARK DATAFRAME TO A PANDAS DATAFRAME SO WE CAN USE THE LOC FUNCTION
 
-# pd_df=my_dataframe.to_pandas()
-# st.dataframe(pd_df)
-# st.stop()
+pd_df=my_dataframe.to_pandas()
+st.dataframe(pd_df)
+st.stop()
 
 
 
